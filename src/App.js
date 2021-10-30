@@ -8,13 +8,15 @@ import Insert from "./components/insert";
 
 function App() {
   return (
-    <div className="grid relative grid-cols-2">
-      <SideBar className="absolute t-1 b-1" />
-      <Switch>
-        <Route path="/" exact component={Dashboard} />
-        <Route path="/list" exact component={List} />
-        <Route path="/insert" exact component={Insert} />
-      </Switch>
+    <div className="grid relative grid-cols-5">
+      <SideBar className="absolute t-1 b-1 col-span-1" />
+      <div className="col-span-4">
+        <Switch>
+          <Route path="/" exact component={Dashboard} />
+          <Route path="/list" exact component={List} />
+          <Route path="/insert" exact component={Insert} />
+        </Switch>
+      </div>
     </div>
   );
 }
