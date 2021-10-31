@@ -5,7 +5,12 @@ module.exports = {
     extend: {},
   },
   variants: {
-    extend: {},
+    extend: {
+      color: {
+        initial: "2px solid rgba(229, 231, 235, var(--tw-bg-opacity))",
+        final: "2px solid rgba(156, 163, 175, var(--tw-bg-opacity))",
+      },
+    },
   },
   plugins: [],
 };
