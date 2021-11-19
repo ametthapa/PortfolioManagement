@@ -5,6 +5,7 @@ import SideBar from "./components/sideBar";
 import Dashboard from "./components/dashboard";
 import List from "./components/list";
 import Insert from "./components/insert";
+import Delete from "./components/delete";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" exact component={Dashboard} />
           <Route path="/list" exact component={List} />
           <Route path="/insert" exact component={Insert} />
+          <Route path="/delete/:stockId" exact component={Delete} />
         </Switch>
       </div>
     </div>
