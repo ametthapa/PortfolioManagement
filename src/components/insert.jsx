@@ -25,6 +25,7 @@ const Insert = () => {
     if (response.data.message) {
       alert("Data Inserted Successfully");
     }
+
     document.getElementById("insertForm").reset();
   };
   return (

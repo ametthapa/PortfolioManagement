@@ -12,7 +12,7 @@ const Delete = (props) => {
     );
     if (response.data.message) {
       setMessage(response.data.message);
-      props.navigation.goBack();
+      window.location.href = "http://localhost:3000/list";
     }
   };
 
