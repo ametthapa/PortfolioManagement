@@ -3,12 +3,12 @@ import axios from "axios";
 
 const Insert = () => {
   const [stockName, setStockName] = useState("");
-  const [transactionType, setTransactionType] = useState("");
+  const [transactionType, setTransactionType] = useState("Buy");
   const [quantity, setQuantity] = useState("");
   const [amount, setAmount] = useState("");
   const [transactionDate, setTransactionDate] = useState("");
 
-  function postRequestHandler(e) {
+  const postRequestHandler = async (e) => {
     e.preventDefault();
     const data = {
       stockName,
@@ -17,23 +17,22 @@ const Insert = () => {
       amount,
       transactionDate,
     };
-    console.log(data);
+    const response = await axios.post(
+      "http://localhost:4000/api/v1/insert",
+      data
+    );
 
-    axios
-      .post("http://localhost:4000/api/v1/insert", data)
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
+    if (response.data.message) {
+      alert("Data Inserted Successfully");
+    }
+    document.getElementById("insertForm").reset();
+  };
   return (
     <div className=" h-screen p-10">
       <div className="w-2/4">
         <div className="text-left font-bold text-2xl mb-5">Add Stocks</div>
         <div className="max-w-lg mx-auto">
-          <form>
+          <form id="insertForm">
             <div className="flex flex-wrap mb-4 w-full px-3">
               <div className="md:w-1/3">
                 <label
@@ -64,7 +63,7 @@ const Insert = () => {
                   <span className="text-red-500 text-bold">*</span>
                 </label>
               </div>
-              <div className="md:w-2/3">
+              {/* <div className="md:w-2/3">
                 <input
                   id="stockName"
                   value={transactionType}
@@ -73,8 +72,8 @@ const Insert = () => {
                   type="text"
                   required
                 />
-              </div>
-              {/* <div className="md:w-2/3">
+              </div> */}
+              <div className="md:w-2/3">
                 <select
                   id="transactionType"
                   name="transactionType"
@@ -86,7 +85,7 @@ const Insert = () => {
                   <option value="Buy">Buy</option>
                   <option value="Sell">Sell</option>
                 </select>
-              </div> */}
+              </div>
             </div>
             {/* <div className="flex flex-wrap mb-4 w-full px-3">
               <div className="md:w-1/3">

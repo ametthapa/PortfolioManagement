@@ -3,7 +3,9 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 const List = () => {
   const [request, setRequest] = useState();
-  const [stocks, setStocks] = useState();
+  const [stocks, setStocks] = useState({
+    data: [],
+  });
 
   useEffect(() => {
     getRequestHandler();
