@@ -15,6 +15,7 @@ const List = () => {
     // console.log(response.data);
     setRequest("GET");
   };
+  // getRequestHandler();
 
   // console.log(stocks);
   let i = 0;
