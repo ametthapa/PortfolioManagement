@@ -34,7 +34,7 @@ const Login = () => {
     >
       {(formik) => {
         return (
-          <div className="h-full flex flex-col justify-center items-center relative">
+          <div className="h-80 flex flex-col justify-center items-center relative">
             <div className="text-left font-bold text-2xl">Account Login</div>
             <Form>
               <TextField
@@ -54,35 +54,12 @@ const Login = () => {
                   Invalid E-mail or Password
                 </div>
               )}
-              <input
-                onChange={(e) => {
-                  formik.setFieldValue("remember", e.target.checked);
-                }}
-                className="mt-8 mr-3"
-                name="remember"
-                type="checkbox"
-                checked={formik.values.remember}
-              />
-
-              <label>Remember me</label>
               <button
                 type="submit"
                 className="bg-blue-500 hover:bg-blue-600 text-white font-semibold mt-5 py-2 px-4 rounded w-full"
               >
                 Sign in
               </button>
-              {/* <button
-                type="button"
-                onClick={() => {
-                  console.log(formik.values);
-                  if (formik.values.email !== "amrit.thapa@gmail.com") {
-                    // formik.setFieldTouched("email", true);
-                    formik.setFieldError("email", "You are not authorised");
-                  }
-                }}
-              >
-                Validate
-              </button> */}
             </Form>
             <button className="text-green-500 hover:text-green-600 font-semibold text-lg transform hover:scale-125 transition duration-200 ease-in rounded absolute bottom-0">
               <Link to="/signup">Register</Link>

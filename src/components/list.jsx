@@ -37,7 +37,7 @@ const List = () => {
           </tr>
           {stocks.data.map((stock) => {
             return (
-              <tr>
+              <tr key={stock._id}>
                 <td className="border border-gray-400 p-1">{(i = i + 1)}</td>
                 <td className="border border-gray-400 p-1 uppercase">
                   {stock.stockName}

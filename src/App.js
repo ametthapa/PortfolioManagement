@@ -9,6 +9,7 @@ import Insert from "./components/insert";
 import Delete from "./components/delete";
 import Register from "./components/Register";
 import Login from "./components/Login";
+import Error from "./components/Error";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -16,11 +17,9 @@ function App() {
   const location = useLocation();
 
   useEffect(() => {
-    console.log("i appered");
     const localStorageValue = localStorage.getItem("loggedIn");
-    console.log(localStorageValue);
     if (localStorageValue) {
-      history.push("/");
+      history.push(location.pathname);
       setLoggedIn(true);
     } else {
       if (location.pathname !== "/signup") {
@@ -41,10 +40,10 @@ function App() {
         <Switch>
           {loggedIn ? (
             <>
-              <Route path="/" exact component={Dashboard} />
               <Route path="/list" exact component={List} />
               <Route path="/insert" exact component={Insert} />
               <Route path="/delete/:stockId" exact component={Delete} />
+              <Route path="/" exact component={Dashboard} />
             </>
           ) : (
             <Fragment>
@@ -52,6 +51,7 @@ function App() {
               <Route path="/signup" exact component={Register} />
             </Fragment>
           )}
+          <Route component={Error} />
         </Switch>
       </div>
     </div>
