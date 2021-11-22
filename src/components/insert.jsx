@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { useHistory } from "react-router";
 
 const Insert = () => {
   const [stockName, setStockName] = useState("");
@@ -7,6 +8,8 @@ const Insert = () => {
   const [quantity, setQuantity] = useState("");
   const [amount, setAmount] = useState("");
   const [transactionDate, setTransactionDate] = useState("");
+
+  const history = useHistory();
 
   const postRequestHandler = async (e) => {
     e.preventDefault();
@@ -24,9 +27,8 @@ const Insert = () => {
 
     if (response.data.message) {
       alert("Data Inserted Successfully");
+      history.push("/list");
     }
-
-    document.getElementById("insertForm").reset();
   };
   return (
     <div className=" h-screen p-10">

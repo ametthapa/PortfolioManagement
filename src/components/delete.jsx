@@ -15,8 +15,8 @@ const Delete = (props) => {
     );
     if (response.data.message) {
       setMessage(response.data.message);
-      // history.goBack();
-      window.location.href = "http://localhost:3000/list";
+      history.push("/list");
+      // window.location.href = "http://localhost:3000/list";
     }
   };
 
