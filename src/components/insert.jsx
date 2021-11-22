@@ -66,16 +66,6 @@ const Insert = () => {
                   <span className="text-red-500 text-bold">*</span>
                 </label>
               </div>
-              {/* <div className="md:w-2/3">
-                <input
-                  id="stockName"
-                  value={transactionType}
-                  onChange={(e) => setTransactionType(e.target.value)}
-                  className="form-input w-full text-gray-800 border rounded focus:outline-white shadow p-1"
-                  type="text"
-                  required
-                />
-              </div> */}
               <div className="md:w-2/3">
                 <select
                   id="transactionType"
@@ -90,30 +80,6 @@ const Insert = () => {
                 </select>
               </div>
             </div>
-            {/* <div className="flex flex-wrap mb-4 w-full px-3">
-              <div className="md:w-1/3">
-                <label
-                  htmlFor="transactionType"
-                  className="block text-gray-800 text-sm font-medium mb-1"
-                >
-                  Transaction Type
-                  <span className="text-red-500 text-bold">*</span>
-                </label>
-              </div>
-              <div className="md:w-2/3">
-                <select
-                  id="transactionType"
-                  name="transactionType"
-                  value={transactionType}
-                  onChange={(e) => setTransactionType(e.target.value)}
-                  className="form-input w-full text-gray-800 border rounded focus:outline-none shadow p-1"
-                  required
-                >
-                  <option value="Buy">Buy</option>
-                  <option value="Sell">Sell</option>
-                </select>
-              </div>
-            </div> */}
             <div className="flex flex-wrap mb-4 w-full px-3">
               <div className="md:w-1/3">
                 <label
