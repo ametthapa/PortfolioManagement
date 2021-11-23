@@ -33,7 +33,7 @@ const List = () => {
             <th className="border border-gray-400 p-3">Quantity</th>
             <th className="border border-gray-400 p-3">Amount</th>
             <th className="border border-gray-400 p-3">TransactionDate</th>
-            <th className="border border-gray-400 p-3">Options</th>
+            <th className="border border-gray-400 p-3">Option</th>
           </tr>
           {stocks.data.map((stock) => {
             return (
@@ -51,7 +51,7 @@ const List = () => {
                   {stock.transactionDate}
                 </td>
                 <td className="border border-gray-400 p-1 px-5">
-                  Update /
+                  {/* Update / */}
                   <Link to={`/delete/${stock._id}`}>
                     <button className="btn text-red-600 hover:text-red-800 hover:font-bold">
                       Delete

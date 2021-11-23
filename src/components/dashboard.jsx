@@ -4,7 +4,9 @@ import { useHistory } from "react-router";
 
 const Dashboard = () => {
   const [request, setRequest] = useState();
-  const [stocks, setStocks] = useState();
+  const [stocks, setStocks] = useState({
+    data: [],
+  });
 
   useEffect(() => {
     getRequestHandler();
@@ -21,9 +23,7 @@ const Dashboard = () => {
     window.localStorage.removeItem("loggedIn");
     history.push("/signin");
   };
-
-  // console.log(stocks.data);
-
+  let totalUnits = 0;
   return (
     <>
       <button
@@ -53,6 +53,7 @@ const Dashboard = () => {
               <td className="px-3">Overall Profit : </td>
             </tr>
           </tbody>
+          {console.log(totalUnits)}
         </table>
       </div>
     </>
