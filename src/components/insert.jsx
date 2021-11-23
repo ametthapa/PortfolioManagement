@@ -8,18 +8,32 @@ const Insert = () => {
   const [quantity, setQuantity] = useState("");
   const [amount, setAmount] = useState("");
   const [transactionDate, setTransactionDate] = useState("");
+  let soldAmount = 0;
+  let investment = 0;
+  let buyAmount = 0;
 
   const history = useHistory();
 
   const postRequestHandler = async (e) => {
     e.preventDefault();
+    if (transactionType === "Sell") {
+      soldAmount = quantity * amount;
+    } else if (transactionType === "Buy") {
+      investment = quantity * amount;
+
+      buyAmount = quantity * amount;
+    }
     const data = {
       stockName,
       transactionType,
       quantity,
       amount,
       transactionDate,
+      soldAmount,
+      buyAmount,
+      investment,
     };
+    console.log(data);
     const response = await axios.post(
       "http://localhost:4000/api/v1/insert",
       data

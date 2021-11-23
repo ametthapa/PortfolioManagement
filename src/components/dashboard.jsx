@@ -24,6 +24,16 @@ const Dashboard = () => {
     history.push("/signin");
   };
   let totalUnits = 0;
+  let totalInvestment = 0;
+  let totalSoldAmount = 0;
+  let currentValue = 0;
+  stocks.data.forEach((element) => {
+    totalUnits = totalUnits + element.quantity;
+    totalInvestment = totalInvestment + element.investment;
+    totalSoldAmount = totalSoldAmount + element.soldAmount;
+  });
+  currentValue = totalInvestment - totalSoldAmount;
+
   return (
     <>
       <button
@@ -40,18 +50,28 @@ const Dashboard = () => {
               <th className="">Dashboard</th>
             </tr>
             <tr>
-              <td className="border border-gray-400 px-3">Total Units : </td>
+              <td className="border border-gray-400 px-3">
+                Total Units :
+                <span className="font-bold text-lg"> {totalUnits}</span>
+              </td>
               <td className="border border-gray-400 px-3">
                 Total Investment :
+                <span className="font-bold text-lg"> {totalInvestment}</span>
               </td>
             </tr>
             <tr>
-              <td className="border border-gray-400 px-3">Sold Amount : </td>
-              <td className="border border-gray-400 px-3">Current Amount : </td>
+              <td className=" px-3">
+                Sold Amount :
+                <span className="font-bold text-lg"> {totalSoldAmount}</span>
+              </td>
+              <td className="border border-gray-400 px-3">
+                Current Amount :{" "}
+                <span className="font-bold text-lg">{currentValue}</span>
+              </td>
             </tr>
-            <tr>
+            {/* <tr>
               <td className="px-3">Overall Profit : </td>
-            </tr>
+            </tr> */}
           </tbody>
           {console.log(totalUnits)}
         </table>
