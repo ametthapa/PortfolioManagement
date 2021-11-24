@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { useHistory } from "react-router";
 
 const Dashboard = () => {
-  const [request, setRequest] = useState();
   const [stocks, setStocks] = useState({
     data: [],
   });
@@ -15,7 +14,6 @@ const Dashboard = () => {
   const getRequestHandler = async () => {
     const response = await axios.get("http://localhost:4000/api/v1/stock");
     setStocks(response.data);
-    setRequest("GET");
   };
 
   const history = useHistory();

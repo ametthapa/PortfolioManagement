@@ -1,10 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useHistory } from "react-router";
 
 const SingleStock = (props) => {
   const stockId = props.match.params.stockId;
-  const [request, setRequest] = useState();
   const [stocks, setStocks] = useState({
     data: [],
   });
@@ -16,7 +14,6 @@ const SingleStock = (props) => {
   const getRequestHandler = async () => {
     const response = await axios.get("http://localhost:4000/api/v1/stock");
     setStocks(response.data);
-    setRequest("GET");
   };
 
   let stockName = 0;
