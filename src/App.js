@@ -10,6 +10,7 @@ import Delete from "./components/delete";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Error from "./components/Error";
+import SingleStock from "./components/singleStock";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -43,6 +44,7 @@ function App() {
               <Route path="/list" exact component={List} />
               <Route path="/insert" exact component={Insert} />
               <Route path="/delete/:stockId" exact component={Delete} />
+              <Route path="/single/:stockId" exact component={SingleStock} />
               <Route path="/" exact component={Dashboard} />
             </>
           ) : (

@@ -39,8 +39,12 @@ const List = () => {
             return (
               <tr key={stock._id}>
                 <td className="border border-gray-400 p-1">{(i = i + 1)}</td>
-                <td className="border border-gray-400 p-1 uppercase">
-                  {stock.stockName}
+                <td className="border border-gray-400 p-1">
+                  <Link to={`/single/${stock.stockName}`}>
+                    <button className="btn text-blue-600 hover:text-blue-800 font-bold uppercase">
+                      {stock.stockName}
+                    </button>
+                  </Link>
                 </td>
                 <td className="border border-gray-400 p-1">
                   {stock.transactionType}
@@ -63,6 +67,11 @@ const List = () => {
           })}
         </tbody>
       </table>
+      <div className="flex flex-col justify-end text-red-700">
+        <span className="text-sm italic font-semibold text-center">
+          Note : Click on stock name to see full detail
+        </span>
+      </div>
     </div>
   );
 };
