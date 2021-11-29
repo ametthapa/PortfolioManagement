@@ -11,6 +11,7 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import Error from "./components/Error";
 import SingleStock from "./components/singleStock";
+import UpdateStock from "./components/UpdateStock";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -44,7 +45,8 @@ function App() {
               <Route path="/list" exact component={List} />
               <Route path="/insert" exact component={Insert} />
               <Route path="/delete/:stockId" exact component={Delete} />
-              <Route path="/single/:stockId" exact component={SingleStock} />
+              <Route path="/single/:stockName" exact component={SingleStock} />
+              <Route path="/update/:stockId" exact component={UpdateStock} />
               <Route path="/" exact component={Dashboard} />
             </>
           ) : (

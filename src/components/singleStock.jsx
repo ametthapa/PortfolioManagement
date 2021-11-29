@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 const SingleStock = (props) => {
-  const stockId = props.match.params.stockId;
+  const stockValue = props.match.params.stockName;
   const [stocks, setStocks] = useState({
     data: [],
   });
@@ -24,7 +24,7 @@ const SingleStock = (props) => {
   let currentUnit = 0;
   let soldUnit = 0;
   stocks.data.forEach((element) => {
-    if (element.stockName === stockId) {
+    if (element.stockName === stockValue) {
       stockName = element.stockName;
       totalUnits = totalUnits + element.quantity;
       totalInvestment = totalInvestment + element.investment;

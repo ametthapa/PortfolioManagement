@@ -41,7 +41,7 @@ const List = () => {
                 <td className="border border-gray-400 p-1">{(i = i + 1)}</td>
                 <td className="border border-gray-400 p-1">
                   <Link to={`/single/${stock.stockName}`}>
-                    <button className="btn text-blue-600 hover:text-blue-800 font-bold uppercase">
+                    <button className="btn text-green-600 hover:text-green-800 font-bold uppercase">
                       {stock.stockName}
                     </button>
                   </Link>
@@ -54,8 +54,13 @@ const List = () => {
                 <td className="border border-gray-400 p-1">
                   {stock.transactionDate}
                 </td>
-                <td className="border border-gray-400 p-1 px-5">
-                  {/* Update / */}
+                <td className="border border-gray-400 p-1 px-5 ">
+                  <Link to={`/update/${stock._id}`}>
+                    <button className="btn text-blue-600 hover:text-blue-800 hover:font-bold">
+                      Update
+                    </button>
+                  </Link>{" "}
+                  /{" "}
                   <Link to={`/delete/${stock._id}`}>
                     <button className="btn text-red-600 hover:text-red-800 hover:font-bold">
                       Delete
